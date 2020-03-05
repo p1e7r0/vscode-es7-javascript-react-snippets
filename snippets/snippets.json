@@ -27,7 +27,7 @@
 		"prefix": "prop",
 		"body": ["import PropTypes from 'prop-types'", ""]
 	},
-	"scaffloding": {
+	"scaffolding": {
 		"prefix": "scaffolding",
 		"body": [
 			"import React from 'react'",
@@ -43,6 +43,9 @@
 			"}",
 			"",
 			"${1:${TM_FILENAME_BASE}}.propTypes = {",
+			"",
+			"}",
+			"${1:${TM_FILENAME_BASE}}.defaultProps = {",
 			"",
 			"}",
 			"",
