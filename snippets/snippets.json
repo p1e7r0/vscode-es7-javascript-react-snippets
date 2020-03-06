@@ -145,5 +145,9 @@
 	"selector": {
 		"prefix": "sel",
 		"body": ["export const select${1/(.*)/${1:/capitalize}/} = state => state.${2:reducer}.${1:state}"]
+	},
+	"className": {
+		"prefix": "class",
+		"body": ["className={classes.$1}"]
 	}
 }
