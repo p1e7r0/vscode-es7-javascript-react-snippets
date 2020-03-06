@@ -2,7 +2,7 @@
   "name": "es7-react-js-snippets",
   "displayName": "ES7 React/Redux snippets only functional component and hooks",
   "description": "Simple extensions for React, Redux in JS/TS with ES7 syntax",
-  "version": "2.10.0",
+  "version": "2.11.0",
   "publisher": "p1e7r0",
   "icon": "images/logo.png",
   "keywords": [
