@@ -1,180 +1,207 @@
 {
-	"import": {
-		"prefix": "imp",
-		"body": "import ${2:moduleName} from '${1:module}'$0"
-	},
-	"method": {
-		"prefix": "met",
-		"body": ["${1:methodName} = (${2:params}) => {", "\t${0}", "}", ""],
-		"description": "Creates a method inside a class in ES7 syntax"
-	},
-	"forEach": {
-		"prefix": "for",
-		"body": ["${1:array}.forEach(${2:currentItem} => {", "\t${0}", "})", ""],
-		"description": "Creates a forEach statement in ES7 syntax"
-	},
-	"namedFunction": {
-		"prefix": "fun",
-		"body": ["const ${1:name} = (${2:params}) => {", "\t${3}", "}", ""],
-		"description": "Creates a named function in ES7 syntax"
-	},
-	"promise": {
-		"prefix": "prom",
-		"body": ["return new Promise((resolve, reject) => {", "\t${1}", "})", ""],
-		"description": "Creates and returns a new Promise in the standard ES7 syntax"
-	},
-	"import PropTypes": {
-		"prefix": "prop",
-		"body": ["import PropTypes from 'prop-types'", ""]
-	},
-	"scaffolding react": {
-		"prefix": "scaffolding",
-		"body": [
-			"import React from 'react'",
-			"import PropTypes from 'prop-types'",
-			"import { useSelector, useDispatch } from 'react-redux'",
-			"",
-			"const ${1:${TM_FILENAME_BASE}} = ({${2:destructuredProp}}) => {",
-			"\treturn (",
-			"\t\t<div>",
-			"\t\t\t$0",
-			"\t\t</div>",
-			"\t)",
-			"}",
-			"",
-			"${1:${TM_FILENAME_BASE}}.propTypes = {",
-			"",
-			"}",
-			"${1:${TM_FILENAME_BASE}}.defaultProps = {",
-			"",
-			"}",
-			"",
-			"export default ${1:${TM_FILENAME_BASE}}",
-			""
-		],
-		"description": "Scaffolding React"
-	},
-	"reduxAction": {
-		"prefix": "action",
-		"body": ["export const ${1:actionName} = (payload) => ({", "\ttype: ${3:type},", "\tpayload", "})", ""]
-	},
-	"reduxConst": {
-		"prefix": "const",
-		"body": "export const ${1:constantName} = '${1:constantName}'"
-	},
-	"reduxReducer": {
-		"prefix": "reducer",
-		"body": [
-			"const initialState = {",
-			"",
-			"}",
-			"",
-			"export default (state = initialState, { type, payload }) => {",
-			"\tswitch (type) {",
-			"",
-			"\tcase ${1:typeName}:",
-			"\t\treturn { ...state, ...payload }",
-			"",
-			"\tdefault:",
-			"\t\treturn state",
-			"\t}",
-			"}",
-			""
-		]
-	},
-	"reduxSelector": {
-		"prefix": "select",
-		"body": ["import { createSelector } from 'reselect'", "", "export const ${1:selectorName} = state => state.${2:selector}", ""]
-	},
-	"useState": {
-		"prefix": "useState",
-		"body": ["const [${1:state}, set${1/(.*)/${1:/capitalize}/}] = useState(${2:initialState})"]
-	},
-	"useEffect": {
-		"prefix": "useEffect",
-		"body": ["useEffect(() => {", "\t${1:effect}", "\treturn () => {", "\t\t${2:cleanup}", "\t};", "}, [${3:input}])"]
-	},
-	"useContext": {
-		"prefix": "useContext",
-		"body": ["const ${1:context} = useContext(${2:contextValue})"]
-	},
-	"useReducer": {
-		"prefix": "useReducer",
-		"body": ["const [state, dispatch] = useReducer(${1:reducer}, ${2:initialState}, ${3:init})"]
-	},
-	"useCallback": {
-		"prefix": "useCallback",
-		"body": ["useCallback(", "\t() => {", "\t\t${1:callback}", "\t},", "\t[${2:input}],", ")"]
-	},
-	"useMemo": {
-		"prefix": "useMemo",
-		"body": ["useMemo(() => ${1:function}, ${2:input})"]
-	},
-	"useRef": {
-		"prefix": "useRef",
-		"body": ["const ${1:ref} = useRef(${2:initialValue})"]
-	},
-	"useImperativeHandle": {
-		"prefix": "useImperativeHandle",
-		"body": ["useImperativeHandle(", "\t${1:ref},", "\t() => {", "\t\t${2:handler}", "\t},", "\t[${3:input}],", ")"]
-	},
-	"useDebugValue": {
-		"prefix": "useDebugValue",
-		"body": ["useDebugValue(${1:value})"]
-	},
-	"useLayoutEffect": {
-		"prefix": "useLayoutEffect",
-		"body": ["useLayoutEffect(() => {", "\t${1:effect}", "\treturn () => {", "\t\t${2:cleanup}", "\t};", "}, [${3:input}])"]
-	},
-	"useDispatch": {
-		"prefix": "useDispatch",
-		"body": ["const dispatch = useDispatch()"]
-	},
-	"useSelector": {
-		"prefix": "useSelector",
-		"body": ["const ${1:state} = useSelector(state => state.${2:reducer}.${1:state})"]
-	},
-	"makeStyles": {
-		"prefix": "makeStyles",
-		"body": ["const useStyles = makeStyles(theme => ({}));"]
-	},
-	"useStyles": {
-		"prefix": "useStyles",
-		"body": ["const classes = useStyles();"]
-	},
-	"selector": {
-		"prefix": "sel",
-		"body": ["export const select${1/(.*)/${1:/capitalize}/} = state => state.${2:reducer}.${1:state}"]
-	},
-	"className": {
-		"prefix": "class",
-		"body": ["className={classes.$1}"]
-	},
-	"style": {
-		"prefix": "style",
-		"body": ["style={styles.$1}"]
-	},
-	"scaffolding native": {
-		"prefix": "scaffolding",
-		"body": [
-			"import React from 'react'",
-			"import { StyleSheet, View } from 'react-native'",
-			"",
-			"const ${1:${TM_FILENAME_BASE}} = ({${2:destructuredProp}}) => {",
-			"\treturn (",
-			"\t\t<View>",
-			"\t\t\t$0",
-			"\t\t</View>",
-			"\t)",
-			"}",
-			"",
-			"const styles = StyleSheet.create({",
-			"",
-			"})",
-			"",
-			"export default ${1:${TM_FILENAME_BASE}}",
-			""
-		],
-		"description": "Scaffolding Native"
-	}
+  "import": {
+    "prefix": "imp",
+    "body": "import ${2:moduleName} from '${1:module}'$0"
+  },
+  "method": {
+    "prefix": "met",
+    "body": ["${1:methodName} = (${2:params}) => {", "\t${0}", "}", ""],
+    "description": "Creates a method inside a class in ES7 syntax"
+  },
+  "forEach": {
+    "prefix": "for",
+    "body": ["${1:array}.forEach(${2:currentItem} => {", "\t${0}", "})", ""],
+    "description": "Creates a forEach statement in ES7 syntax"
+  },
+  "namedFunction": {
+    "prefix": "fun",
+    "body": ["const ${1:name} = (${2:params}) => {", "\t${3}", "}", ""],
+    "description": "Creates a named function in ES7 syntax"
+  },
+  "promise": {
+    "prefix": "prom",
+    "body": ["return new Promise((resolve, reject) => {", "\t${1}", "})", ""],
+    "description": "Creates and returns a new Promise in the standard ES7 syntax"
+  },
+  "import PropTypes": {
+    "prefix": "prop",
+    "body": ["import PropTypes from 'prop-types'", ""]
+  },
+  "scaffolding": {
+    "prefix": "scaffolding",
+    "body": [
+      "import React from 'react'",
+      "import PropTypes from 'prop-types'",
+      "import { useSelector, useDispatch } from 'react-redux'",
+      "",
+      "const ${1:${TM_FILENAME_BASE}} = ({${2:destructuredProp}}) => {",
+      "\treturn (",
+      "\t\t<div>",
+      "\t\t\t$0",
+      "\t\t</div>",
+      "\t)",
+      "}",
+      "",
+      "${1:${TM_FILENAME_BASE}}.propTypes = {",
+      "",
+      "}",
+      "${1:${TM_FILENAME_BASE}}.defaultProps = {",
+      "",
+      "}",
+      "",
+      "export default ${1:${TM_FILENAME_BASE}}",
+      ""
+    ],
+    "description": "Scaffolding React"
+  },
+  "reduxAction": {
+    "prefix": "action",
+    "body": [
+      "export const ${1:actionName} = (payload) => ({",
+      "\ttype: ${3:type},",
+      "\tpayload",
+      "})",
+      ""
+    ]
+  },
+  "reduxConst": {
+    "prefix": "const",
+    "body": "export const ${1:constantName} = '${1:constantName}'"
+  },
+  "reduxReducer": {
+    "prefix": "reducer",
+    "body": [
+      "const initialState = {",
+      "",
+      "}",
+      "",
+      "export default (state = initialState, { type, payload }) => {",
+      "\tswitch (type) {",
+      "",
+      "\tcase ${1:typeName}:",
+      "\t\treturn { ...state, ...payload }",
+      "",
+      "\tdefault:",
+      "\t\treturn state",
+      "\t}",
+      "}",
+      ""
+    ]
+  },
+  "reduxSelector": {
+    "prefix": "select",
+    "body": [
+      "import { createSelector } from 'reselect'",
+      "",
+      "export const ${1:selectorName} = state => state.${2:selector}",
+      ""
+    ]
+  },
+  "useState": {
+    "prefix": "useState",
+    "body": [
+      "const [${1:state}, set${1/(.*)/${1:/capitalize}/}] = useState(${2:initialState})"
+    ]
+  },
+  "useEffect": {
+    "prefix": "useEffect",
+    "body": [
+      "useEffect(() => {",
+      "\t${1:effect}",
+      "\treturn () => {",
+      "\t\t${2:cleanup}",
+      "\t};",
+      "}, [${3:input}])"
+    ]
+  },
+  "useContext": {
+    "prefix": "useContext",
+    "body": ["const ${1:context} = useContext(${2:contextValue})"]
+  },
+  "useReducer": {
+    "prefix": "useReducer",
+    "body": [
+      "const [state, dispatch] = useReducer(${1:reducer}, ${2:initialState}, ${3:init})"
+    ]
+  },
+  "useCallback": {
+    "prefix": "useCallback",
+    "body": [
+      "useCallback(",
+      "\t() => {",
+      "\t\t${1:callback}",
+      "\t},",
+      "\t[${2:input}],",
+      ")"
+    ]
+  },
+  "useMemo": {
+    "prefix": "useMemo",
+    "body": ["useMemo(() => ${1:function}, ${2:input})"]
+  },
+  "useRef": {
+    "prefix": "useRef",
+    "body": ["const ${1:ref} = useRef(${2:initialValue})"]
+  },
+  "useImperativeHandle": {
+    "prefix": "useImperativeHandle",
+    "body": [
+      "useImperativeHandle(",
+      "\t${1:ref},",
+      "\t() => {",
+      "\t\t${2:handler}",
+      "\t},",
+      "\t[${3:input}],",
+      ")"
+    ]
+  },
+  "useDebugValue": {
+    "prefix": "useDebugValue",
+    "body": ["useDebugValue(${1:value})"]
+  },
+  "useLayoutEffect": {
+    "prefix": "useLayoutEffect",
+    "body": [
+      "useLayoutEffect(() => {",
+      "\t${1:effect}",
+      "\treturn () => {",
+      "\t\t${2:cleanup}",
+      "\t};",
+      "}, [${3:input}])"
+    ]
+  },
+  "useDispatch": {
+    "prefix": "useDispatch",
+    "body": ["const dispatch = useDispatch()"]
+  },
+  "useSelector": {
+    "prefix": "useSelector",
+    "body": ["const ${1/(.*)/${1:/downcase}/} = useSelector(select${1:state})"]
+  },
+  "makeStyles": {
+    "prefix": "makeStyles",
+    "body": ["const useStyles = makeStyles(theme => ({}));"]
+  },
+  "useStyles": {
+    "prefix": "useStyles",
+    "body": ["const classes = useStyles();"]
+  },
+  "useTranslate": {
+    "prefix": "useTranslate",
+    "body": ["const transate = useTranslate();"]
+  },
+  "selector": {
+    "prefix": "sel",
+    "body": [
+      "export const select${1/(.*)/${1:/capitalize}/} = state => state.${2:reducer}.${1:state}"
+    ]
+  },
+  "className": {
+    "prefix": "class",
+    "body": ["className={classes.$1}"]
+  },
+  "style": {
+    "prefix": "style",
+    "body": ["style={styles.$1}"]
+  }
 }
